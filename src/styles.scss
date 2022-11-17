@@ -1,4 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+* {
+    box-sizing: border-box;
+    font-family: Poppins;
+    font-style: normal;
+    letter-spacing: 0.03em;
+}
+
+h1 {
+    font-weight: 400;
+}
+
+span {
+    font-weight: 300;
+}
+
+// Animaciones de la aplicacion
+  
+@keyframes rotateIn {
+    from {
+      transform: rotate( 0deg ) scale(0.2);
+      opacity: 0;
+    }
+    to {
+      transform: rotate( 360deg ) scale(1);
+      opacity: 1;
+    }
+}

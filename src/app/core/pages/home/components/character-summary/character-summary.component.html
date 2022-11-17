@@ -1,0 +1,40 @@
+<section class="summary--bar">
+
+    <mat-toolbar class="header" color="primary">
+        <h1 class="name">{{ character.name }}</h1>
+        <div class="separator--favorite"></div>
+        <button mat-icon-button>
+            <mat-icon class="actions">favorite</mat-icon>
+        </button>
+    </mat-toolbar>
+    <img class="image" src="{{ character.image }}" alt="{{ character.name }}">
+    <div class="summary">
+        <span>Especie: {{ character.species }}</span>
+        <span [ngClass]="{
+            'alive': character.status.toLowerCase().includes('alive'),
+            'notAlive': !character.status.toLowerCase().includes('alive')
+        }">
+            {{ character.status }}
+        </span>
+    </div>
+    <div class="detail">
+        <div class="separator">
+            <span class="subtitle">Planeta de Origen:</span>
+            <span>{{ character.origin.name }}</span>
+        </div>
+        <div class="separator">
+            <span class="subtitle">Ultimo lugar visto:</span>
+            <span>{{ character.location.name }}</span>
+        </div>
+        <div class="separator">
+            <span class="subtitle">Ultima aparicion:</span>
+            <span>Episodio {{ lastEpisode.id }}: {{ lastEpisode.name }}</span>
+        </div>
+    </div>
+    <button 
+        mat-flat-button class="btn--action" 
+        color="primary"
+        routerLink="/character/{{character.id}}"
+    ><span>Conocer mas</span></button>
+
+</section>

@@ -1,0 +1,22 @@
+.separator {
+    flex: 1 1 auto;
+}
+
+span, h1 {
+    margin-left: 15px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+span {
+    font-size: 0.8em;
+}
+
+span:hover {
+    color: orange;
+}
+
+.actions:hover {
+    opacity: 80%;
+    color: orange;
+}
