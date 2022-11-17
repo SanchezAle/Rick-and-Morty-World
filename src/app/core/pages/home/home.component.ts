@@ -1,9 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { tap, takeUntil, Subject, switchMap } from 'rxjs';
 
-import { CharactersDataService } from './services/characters-data.service';
+import { CharactersDataService } from '../../services/characters-data.service'
 import { Character } from 'src/app/shared/models/character.model';
-import { ApiDataResponse } from 'src/app/shared/models/apiDataResponse.model';
 
 @Component({
   selector: 'app-home',
@@ -60,7 +59,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         )
         .subscribe();
 
-      this.characterSrv.getFirstCharacters();
+      this.characterSrv.getCharacters();
   }
 
   ngOnDestroy(): void {

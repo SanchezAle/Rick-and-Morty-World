@@ -15,10 +15,9 @@
 
 .characters {
     margin-top: 20px;
-}
-
-.characters:hover {
-    transform: translateY(-5px);
+    &:hover {
+        transform: translateY(-5px);
+    }
 }
 
 .backgroundDark {
@@ -49,4 +48,9 @@ app-character-summary {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
+
+    span {
+        margin-top: 5px
+    };
 }

@@ -1,23 +1,37 @@
 <section *ngIf="await" class="spinner-container">
     <mat-spinner></mat-spinner>
 </section>
-<section *ngIf="!await" class="character--container">
-    <div class="characters" *ngFor="let character of characters">
-        <app-character-card 
-            class="character--card" 
-            [character]="character"
-            (viewCharacter)="submitCharacter($event)"
-        ></app-character-card>
+<div class="container" *ngIf="!await">
+    <div class="paginator">
+        <span>Pagina {{ pagination }}. Total de personajes: {{ characterCount }}</span>
+        <button mat-icon-button color="primary" (click)="paginator('prev')">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="paginator('next')">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
     </div>
-</section>
-<div class="backgroundDark" (click)="toggleSummary()" [class.active]="activeSummary"></div>
-<app-character-summary [class.active]="activeSummary"></app-character-summary>
-<div class="paginator">
-    <span>Pagina {{ pagination }}. Total de personajes: {{ characterCount }}</span>
-    <button mat-icon-button color="primary" (click)="paginator('prev')">
-        <mat-icon>keyboard_arrow_left</mat-icon>
-    </button>
-    <button mat-icon-button color="primary" (click)="paginator('next')">
-        <mat-icon>keyboard_arrow_right</mat-icon>
-    </button>
+
+    <section class="character--container">
+        <div class="characters" *ngFor="let character of characters">
+            <app-character-card 
+                class="character--card" 
+                [character]="character"
+                (viewCharacter)="submitCharacter($event)"
+            ></app-character-card>
+        </div>
+    </section>
+
+    <div class="paginator">
+        <span>Pagina {{ pagination }}. Total de personajes: {{ characterCount }}</span>
+        <button mat-icon-button color="primary" (click)="paginator('prev')">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <button mat-icon-button color="primary" (click)="paginator('next')">
+            <mat-icon>keyboard_arrow_right</mat-icon>
+        </button>
+    </div>
+
+    <div class="backgroundDark" (click)="toggleSummary()" [class.active]="activeSummary"></div>
+    <app-character-summary [class.active]="activeSummary"></app-character-summary>
 </div>
