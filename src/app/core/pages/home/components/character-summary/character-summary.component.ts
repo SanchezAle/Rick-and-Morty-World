@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap, takeUntil, Subject, switchMap } from 'rxjs';
 
-import { CharactersDataService } from '../../services/characters-data.service';
+import { CharactersDataService } from '../../../../services/characters-data.service'
 import { Character } from 'src/app/shared/models/character.model';
 import { Episodes } from 'src/app/shared/models/episodes.models';
 
@@ -26,6 +26,7 @@ export class CharacterSummaryComponent implements OnInit, OnDestroy {
     species: '',
     image: '',
     url: '',
+    gender: '',
     location: { name: '', url: '' },
     origin: { name: '', url: '' },
     episode: [],
@@ -35,16 +36,12 @@ export class CharacterSummaryComponent implements OnInit, OnDestroy {
 
   private componentDestroyed$: Subject<void> = new Subject();
 
-  searchEpisodeName(url: string) {
-    return this.http.get<Episodes>(url);
-  }
-
   ngOnInit(): void {
     this.characterSrv.characterSummary
       .pipe(
         takeUntil(this.componentDestroyed$),
         tap(character => this.character = character),
-        switchMap(info => this.searchEpisodeName(info.episode[info.episode.length-1])),
+        switchMap(info => this.characterSrv.searchEpisodeName(info.episode[info.episode.length-1])),
         tap(response => this.lastEpisode = response),
       )
       .subscribe();

@@ -11,6 +11,7 @@ import { PageNotFoundComponent } from './core/pages/page-not-found/page-not-foun
 import { MaterialModule } from './shared/material/material.module';
 import { CharacterCardComponent } from './core/pages/home/components/character-card/character-card.component';
 import { CharacterSummaryComponent } from './core/pages/home/components/character-summary/character-summary.component';
+import { CharactersDetailComponent } from './features/characters-detail/characters-detail.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CharacterSummaryComponent } from './core/pages/home/components/characte
     TopbarComponent,
     PageNotFoundComponent,
     CharacterCardComponent,
-    CharacterSummaryComponent
+    CharacterSummaryComponent,
+    CharactersDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,7 @@ export interface Character {
     type: string;
     image: string;
     url: string;
+    gender: string;
 
     episode: string[];
     location: Location;

@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 
 import { Character } from 'src/app/shared/models/character.model';
 import { ApiDataResponse } from 'src/app/shared/models/apiDataResponse.model';
+import { Episodes } from 'src/app/shared/models/episodes.models';
 
 @Injectable({
   providedIn: 'root'
@@ -20,12 +21,21 @@ export class CharactersDataService {
     private http: HttpClient,
   ) { }
 
-  getFirstCharacters() {
+  getCharacters() {
     const endPointCharacters = `${this.endPoint}/character`;
     this.charactersForPage$.next(endPointCharacters);
   }
 
   getCharactersForPage(url: string) {
     return this.http.get<ApiDataResponse>(url);
+  }
+
+  getOneCharacter(param: string = '') {
+    const url = `${this.endPoint}/character/${param}`;
+    return this.http.get<Character>(url);
+  }
+
+  searchEpisodeName(url: string) {
+    return this.http.get<Episodes>(url);
   }
 }

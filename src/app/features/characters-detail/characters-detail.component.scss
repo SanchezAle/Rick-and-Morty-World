@@ -1,0 +1,139 @@
+.character--container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    background-color: white;
+
+    h1 {
+        margin: 0px;
+        font-size: 1.8em;
+        text-align: center;
+    }
+    
+    span {
+        font-size: 1.2em;
+    }
+
+    .header, .summary {
+        max-width: 500px;
+    }
+
+    .image {
+        width: 300px;
+        height: 300px;
+        margin: 20px;
+    }    
+
+}
+
+.subtitle {
+    font-weight: 500;
+}
+
+.header {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    .actions {
+        color: var(--favorite-color);
+    }
+}
+
+.summary {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 5px;
+}
+
+.detail {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 90%;
+    max-width: 850px;
+    margin-top: 20px;
+
+    span {
+        text-align: center;
+    }
+
+    .location {
+        cursor: pointer;
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
+
+    .summary {
+        font-weight: 400;
+        font-size: 1em;
+    }
+
+    .separator {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.episodes--list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 20px;
+
+    .list {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+
+    .episode {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 200px;
+        padding: 5px 3px;
+        margin: 10px 5px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        text-align: center;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+        &:hover {
+            transform: translateY(-3px);
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+        }
+    }
+}
+
+.alive, .notAlive {
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    width: auto;
+    height: auto;
+    border-radius: 5px;
+    color: white;
+}
+
+.alive {
+    background-color: green;
+}
+
+.notAlive {
+    background-color: grey;
+}

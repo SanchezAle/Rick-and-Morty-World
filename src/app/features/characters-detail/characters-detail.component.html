@@ -1,0 +1,45 @@
+<div class="separator--favorite"></div>
+
+<section class="character--container">
+
+    <div class="header" color="primary">
+        <h1 class="name">{{ character.name }}</h1>
+        <button mat-icon-button>
+            <mat-icon class="actions">favorite</mat-icon>
+        </button>
+    </div>
+    <img class="image" src="{{ character.image }}" alt="{{ character.name }}">
+    <div class="summary">
+        <span>Especie: {{ character.species }}</span>
+        <span>Genero: {{ character.gender }}</span>
+        <span [ngClass]="{
+            'alive': character.status.toLowerCase().includes('alive'),
+            'notAlive': !character.status.toLowerCase().includes('alive')
+        }">
+            {{ character.status }}
+        </span>
+    </div>
+    <div class="detail">
+        <div class="separator">
+            <span class="subtitle">Planeta de Origen:</span>
+            <span class="location" routerLink="/location/{{locationId}}">{{ character.origin.name }}</span>
+        </div>
+        <div class="separator">
+            <span class="subtitle">Ultimo lugar visto:</span>
+            <span class="location" routerLink="/location/{{locationId}}">{{ character.location.name }}</span>
+        </div>
+    </div>
+    <div class="episodes--list">
+        <span class="subtitle">Episodios donde fue visto:</span>
+        <div class="list" *ngIf="showEpisodes">
+            <div class="episode" *ngFor="let episode of episodes">
+                <span>Episodio: {{ episode.id }}</span>
+                <span>{{ episode.name }}</span>
+            </div>
+        </div>
+        <div class="list" *ngIf="!showEpisodes">
+            <mat-spinner></mat-spinner>
+        </div>
+    </div>
+
+</section>

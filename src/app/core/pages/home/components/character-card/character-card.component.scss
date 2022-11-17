@@ -44,6 +44,11 @@ span {
     margin: 5px;
 }
 
+.summary {
+    font-weight: 400;
+    font-size: 1em;
+}
+
 .detail {
     width: 100%;
     display: flex;
@@ -68,9 +73,4 @@ span {
 
 .notAlive {
     background-color: grey;
-}
-
-.summary {
-    font-weight: 400;
-    font-size: 1em;
 }
