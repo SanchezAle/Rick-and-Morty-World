@@ -34,7 +34,7 @@ export class CharactersDetailComponent implements OnInit, OnDestroy {
     image: '',
     url: '',
     gender: '',
-    location: { name: '', url: '' },
+    location: { name: '', url: '', type: '', dimension: '', residents: [] },
     origin: { name: '', url: '' },
     episode: [],
   }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/pages/home/home.component';
 import { PageNotFoundComponent } from './core/pages/page-not-found/page-not-found.component';
 import { CharactersDetailComponent } from './features/characters-detail/characters-detail.component';
+import { CharactersLocationsComponent } from './features/characters-locations/characters-locations.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'character/:id',
     component: CharactersDetailComponent,
+  },
+  {
+    path: 'location/:id',
+    component: CharactersLocationsComponent,
   },
   {
     path: '**',

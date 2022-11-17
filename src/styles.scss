@@ -36,3 +36,14 @@ span {
       opacity: 1;
     }
 }
+
+@keyframes initComponent {
+  from { 
+      transform: translateY(-420px);
+      opacity: 0%;
+  }
+  to { 
+      transform: translateY(0px);
+      opacity: 100%;
+  }
+}

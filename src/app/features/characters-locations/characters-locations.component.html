@@ -1,0 +1,18 @@
+<div class="location--data--container">
+
+    <div class="location--container">
+        <div class="location">
+            <div class="image--container">
+                <img src="{{ img }}" alt="">
+            </div>
+            <div class="location--detail">
+                <h1>{{ location.name }}</h1>
+                <span>Tipo: {{ location.type }}</span>
+                <span>Dimension: {{ location.dimension }}</span>
+                <span>Numero de residentes: {{ location.residents.length }}</span>
+            </div>
+        </div>
+        <button mat-flat-button color="primary" routerLink="/">Ver más personajes</button>
+    </div>
+
+</div>
