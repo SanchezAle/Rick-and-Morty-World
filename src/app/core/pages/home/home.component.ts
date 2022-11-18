@@ -1,5 +1,12 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { tap, takeUntil, Subject, switchMap } from 'rxjs';
+import {
+  tap,
+  takeUntil,
+  Subject,
+  switchMap,
+  catchError,
+  of
+} from 'rxjs';
 
 import { CharactersDataService } from '../../services/characters-data.service'
 import { Character } from 'src/app/shared/models/character.model';
@@ -16,6 +23,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {}
 
   await = false;
+  message = '';
   activeSummary = false;
   characters: Character[] = [];
   characterCount = 0;
@@ -34,13 +42,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   paginator(direction: any){
-    
+
     if(direction === 'prev' && this.pagination > 1) {
       this.characterSrv.charactersForPage$.next(this.prevPage);
       this.pagination--;
       return;
     }
-    
+
     if(direction == 'next') {
       this.characterSrv.charactersForPage$.next(this.nextPage);
       this.pagination++;
@@ -59,6 +67,11 @@ export class HomeComponent implements OnInit, OnDestroy {
           tap(response => this.characterCount = response.info.count),
           tap(response => this.characters = response.results),
           tap(() => this.await = !this.await),
+          catchError(() => {
+            this.message = 'Ha ocurrido un error al cargar los personajes.';
+            this.await = !this.await;
+            return of();
+          })
         )
         .subscribe();
 

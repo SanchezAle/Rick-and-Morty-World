@@ -9,10 +9,12 @@
         (directionPages)="paginator($event)"
     ></app-paginator>
 
+    <h1 class="message">{{ message }}</h1>
+
     <section class="character--container">
         <div class="characters" *ngFor="let character of characters">
-            <app-character-card 
-                class="character--card" 
+            <app-character-card
+                class="character--card"
                 [character]="character"
                 (viewCharacter)="submitCharacter($event)"
             ></app-character-card>

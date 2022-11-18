@@ -2,8 +2,8 @@
     <h1>Mis personajes favoritos de Rick and Morty</h1>
     <div class="favorites">
         <div class="favorite--card" *ngFor="let character of favoriteList">
-            <app-character-card 
-                class="character--card" 
+            <app-character-card
+                class="character--card"
                 [character]="character"
                 (viewCharacter)="submitCharacter($event)"
             ></app-character-card>

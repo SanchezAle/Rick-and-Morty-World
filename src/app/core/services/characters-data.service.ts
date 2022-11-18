@@ -15,7 +15,7 @@ export class CharactersDataService {
   private endPoint = 'https://rickandmortyapi.com/api/';
 
   public characterSummary: Subject<Character> = new Subject();
-  
+
   public charactersForPage$: Subject<string> = new Subject();
 
   constructor(
@@ -23,7 +23,7 @@ export class CharactersDataService {
   ) { }
 
   getCharacters() {
-    const endPointCharacters = `${this.endPoint}/character`;
+    const endPointCharacters = `${this.endPoint}character`;
     this.charactersForPage$.next(endPointCharacters);
   }
 
@@ -32,12 +32,12 @@ export class CharactersDataService {
   }
 
   getOneCharacter(param: string = '') {
-    const url = `${this.endPoint}/character/${param}`;
+    const url = `${this.endPoint}character/${param}`;
     return this.http.get<Character>(url);
   }
 
   getLocation(param: string = '') {
-    const url = `${this.endPoint}/location/${param}`;
+    const url = `${this.endPoint}location/${param}`;
     return this.http.get<Location>(url);
   }
 

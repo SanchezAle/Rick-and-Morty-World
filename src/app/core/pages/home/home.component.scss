@@ -15,6 +15,10 @@
     gap: 5px;
 }
 
+.message {
+  text-align: center;
+}
+
 .characters:hover {
     transform: translateY(-5px);
 }
@@ -44,7 +48,7 @@ app-character-summary {
 }
 
 @media screen and (max-width: 768px) {
-    .character--container { 
+    .character--container {
         padding: 0px;
     }
 }
