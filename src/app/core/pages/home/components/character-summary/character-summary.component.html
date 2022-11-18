@@ -4,7 +4,7 @@
         <h1 class="name">{{ character.name }}</h1>
         <div class="separator--favorite"></div>
         <button mat-icon-button>
-            <mat-icon class="actions">favorite</mat-icon>
+            <mat-icon class="actions" (click)="addFavorite()">favorite</mat-icon>
         </button>
     </mat-toolbar>
     <img class="image" src="{{ character.image }}" alt="{{ character.name }}">

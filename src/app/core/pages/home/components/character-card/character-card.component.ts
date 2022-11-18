@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Character } from 'src/app/shared/models/character.model';
+import { FavoritesService } from 'src/app/core/services/favorites.service';
 
 @Component({
   selector: 'app-character-card',
@@ -12,10 +13,16 @@ export class CharacterCardComponent {
   @Input('character') character!: Character;
   @Output() viewCharacter = new EventEmitter<Character>();
 
-  constructor() {}
+  constructor(
+    private favoriteSrv: FavoritesService,
+  ) {}
 
   viewCharacterEmitter() {
     this.viewCharacter.emit(this.character);
+  }
+
+  addFavorite() {
+    this.favoriteSrv.newFavorite$.next(this.character);
   }
 
 }

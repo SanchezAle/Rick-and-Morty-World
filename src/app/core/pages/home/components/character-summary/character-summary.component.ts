@@ -5,6 +5,7 @@ import { tap, takeUntil, Subject, switchMap } from 'rxjs';
 import { CharactersDataService } from '../../../../services/characters-data.service'
 import { Character } from 'src/app/shared/models/character.model';
 import { Episodes } from 'src/app/shared/models/episodes.models';
+import { FavoritesService } from 'src/app/core/services/favorites.service';
 
 @Component({
   selector: 'app-character-summary',
@@ -16,6 +17,7 @@ export class CharacterSummaryComponent implements OnInit, OnDestroy {
   constructor(
     private characterSrv: CharactersDataService,
     private http: HttpClient,
+    private favoriteSrv: FavoritesService,
   ) { }
 
   character: Character = {
@@ -45,6 +47,10 @@ export class CharacterSummaryComponent implements OnInit, OnDestroy {
         tap(response => this.lastEpisode = response),
       )
       .subscribe();
+  }
+
+  addFavorite() {
+    this.favoriteSrv.newFavorite$.next(this.character);
   }
 
   ngOnDestroy(): void {

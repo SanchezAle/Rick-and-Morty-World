@@ -5,7 +5,7 @@
     <div class="header" color="primary">
         <h1 class="name">{{ character.name }}</h1>
         <button mat-icon-button>
-            <mat-icon class="actions">favorite</mat-icon>
+            <mat-icon class="actions" (click)="addFavorite()">favorite</mat-icon>
         </button>
     </div>
     <img class="image" src="{{ character.image }}" alt="{{ character.name }}">

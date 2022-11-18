@@ -13,6 +13,7 @@ import { CharacterCardComponent } from './core/pages/home/components/character-c
 import { CharacterSummaryComponent } from './core/pages/home/components/character-summary/character-summary.component';
 import { CharactersDetailComponent } from './features/characters-detail/characters-detail.component';
 import { CharactersLocationsComponent } from './features/characters-locations/characters-locations.component';
+import { CharactersFavoritesComponent } from './features/characters-favorites/characters-favorites.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CharactersLocationsComponent } from './features/characters-locations/ch
     CharacterCardComponent,
     CharacterSummaryComponent,
     CharactersDetailComponent,
-    CharactersLocationsComponent
+    CharactersLocationsComponent,
+    CharactersFavoritesComponent
   ],
   imports: [
     BrowserModule,

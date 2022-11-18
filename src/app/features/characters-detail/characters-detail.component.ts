@@ -4,6 +4,7 @@ import { tap, map, takeUntil, Subject, switchMap, forkJoin } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 
 import { CharactersDataService } from 'src/app/core/services/characters-data.service';
+import { FavoritesService } from 'src/app/core/services/favorites.service';
 import { Character } from 'src/app/shared/models/character.model';
 import { Episodes } from '../../shared/models/episodes.models'
 
@@ -19,6 +20,7 @@ export class CharactersDetailComponent implements OnInit, OnDestroy {
     private changeDetector: ChangeDetectorRef,
     private currentRoute: ActivatedRoute,
     private characterSrv: CharactersDataService,
+    private favoriteSrv: FavoritesService,
   ) {}
 
   private componentDestroyed$: Subject<void> = new Subject();
@@ -71,6 +73,10 @@ export class CharactersDetailComponent implements OnInit, OnDestroy {
         tap(() => this.changeDetector.detectChanges()),
       )
       .subscribe();
+  }
+
+  addFavorite() {
+    this.favoriteSrv.newFavorite$.next(this.character);
   }
 
   ngOnDestroy(): void {

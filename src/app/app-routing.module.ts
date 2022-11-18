@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './core/pages/home/home.component';
 import { PageNotFoundComponent } from './core/pages/page-not-found/page-not-found.component';
 import { CharactersDetailComponent } from './features/characters-detail/characters-detail.component';
+import { CharactersFavoritesComponent } from './features/characters-favorites/characters-favorites.component';
 import { CharactersLocationsComponent } from './features/characters-locations/characters-locations.component';
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'location/:id',
     component: CharactersLocationsComponent,
+  },
+  {
+    path: 'favorites',
+    component: CharactersFavoritesComponent,
   },
   {
     path: '**',
