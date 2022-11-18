@@ -49,6 +49,13 @@ span {
         font-weight: 500;
     }
 
+    .link {
+        cursor: pointer;
+        &:hover{
+            color: var(--primary-color);
+        }
+    }
+
     .summary {
         font-weight: 400;
         font-size: 1em;

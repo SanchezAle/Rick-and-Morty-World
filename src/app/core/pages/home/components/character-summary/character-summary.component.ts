@@ -35,6 +35,8 @@ export class CharacterSummaryComponent implements OnInit, OnDestroy {
   }
 
   lastEpisode: Episodes = { id: 0, name: '' };
+  locationId = '';
+  originId = '';
 
   private componentDestroyed$: Subject<void> = new Subject();
 
@@ -43,6 +45,8 @@ export class CharacterSummaryComponent implements OnInit, OnDestroy {
       .pipe(
         takeUntil(this.componentDestroyed$),
         tap(character => this.character = character),
+        tap(response => this.originId = response.origin.url.replace(/[^0-9]+/g, "")),
+        tap(response => this.locationId = response.location.url.replace(/[^0-9]+/g, "")),
         switchMap(info => this.characterSrv.searchEpisodeName(info.episode[info.episode.length-1])),
         tap(response => this.lastEpisode = response),
       )

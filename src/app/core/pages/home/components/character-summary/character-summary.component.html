@@ -1,13 +1,17 @@
 <section class="summary--bar">
 
     <mat-toolbar class="header" color="primary">
+
         <h1 class="name">{{ character.name }}</h1>
         <div class="separator--favorite"></div>
         <button mat-icon-button>
             <mat-icon class="actions" (click)="addFavorite()">favorite</mat-icon>
         </button>
+
     </mat-toolbar>
+
     <img class="image" src="{{ character.image }}" alt="{{ character.name }}">
+
     <div class="summary">
         <span>Especie: {{ character.species | translate }}</span>
         <span [ngClass]="{
@@ -17,20 +21,32 @@
             {{ character.status | translate }}
         </span>
     </div>
+
     <div class="detail">
+         
         <div class="separator">
             <span class="subtitle">Planeta de Origen:</span>
-            <span>{{ character.origin.name | translate }}</span>
+            <span 
+                class="link"
+                routerLink="/location/{{ originId }}"
+            >{{ character.origin.name | translate }}</span>
         </div>
+        
         <div class="separator">
             <span class="subtitle">Ultimo lugar visto:</span>
-            <span>{{ character.location.name | translate }}</span>
+            <span
+                class="link"
+                routerLink="/location/{{ locationId }}"
+            >{{ character.location.name | translate }}</span>
         </div>
+
         <div class="separator">
             <span class="subtitle">Ultima aparicion:</span>
             <span>Episodio {{ lastEpisode.id }}: {{ lastEpisode.name }}</span>
         </div>
+
     </div>
+
     <button 
         mat-flat-button class="btn--action" 
         color="primary"

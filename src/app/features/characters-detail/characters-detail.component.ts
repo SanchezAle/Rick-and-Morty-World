@@ -44,6 +44,7 @@ export class CharactersDetailComponent implements OnInit, OnDestroy {
   episodes: Episodes[] = [];
 
   locationId = '';
+  originId = '';
 
   showEpisodes = false;
 
@@ -67,6 +68,7 @@ export class CharactersDetailComponent implements OnInit, OnDestroy {
         tap(params => this.characterId = params['id']),
         switchMap(() => this.characterSrv.getOneCharacter(this.characterId)),
         tap(response => this.character = response),
+        tap(response => this.originId = response.origin.url.replace(/[^0-9]+/g, "")),
         tap(response => this.locationId = response.location.url.replace(/[^0-9]+/g, "")),
         tap(() => this.getEpisodesData(this.character.episode)),
         tap(info => console.log(info)),
