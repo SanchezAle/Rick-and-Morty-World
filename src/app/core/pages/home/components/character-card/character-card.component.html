@@ -8,7 +8,7 @@
     </div>
     <img class="image" src="{{ character.image }}" alt="{{ character.name }}">
     <div class="detail">
-        <span>Especie: {{ character.species | translate }}</span>
+        <span>{{ character.species | translate }}</span>
         <span [ngClass]="{
             'alive': character.status.toLowerCase().includes('alive'),
             'notAlive': !character.status.toLowerCase().includes('alive')

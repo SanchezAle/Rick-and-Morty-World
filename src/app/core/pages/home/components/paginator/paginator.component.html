@@ -1,9 +1,11 @@
 <div class="paginator">
     <span>Pagina {{ pagination }}. Total de personajes: {{ characterCount }}</span>
-    <button mat-raised-button (click)="previusPage()">
-        Anterior
-    </button>
-    <button mat-raised-button (click)="nextPage()">
-        Siguiente
-    </button>
+    <div class="buttons">
+        <button mat-raised-button (click)="previusPage()">
+            Anterior
+        </button>
+        <button mat-raised-button (click)="nextPage()">
+            Siguiente
+        </button>
+    </div>
 </div>

@@ -51,6 +51,12 @@
         mat-flat-button class="btn--action" 
         color="primary"
         routerLink="/character/{{character.id}}"
-    ><span>Conocer mas</span></button>
+    ><span>Conocer más</span></button>
+
+    <button 
+        mat-flat-button class="btn--action" 
+        color="primary"
+        (click)="toggleSummary()"
+    ><span>Cerrar</span></button>
 
 </section>

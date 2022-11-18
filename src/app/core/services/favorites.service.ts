@@ -25,14 +25,14 @@ export class FavoritesService {
     listUpdated.push(restCharacter);
     const newFavorite = JSON.stringify(listUpdated);
     localStorage.setItem('Favorites', newFavorite);
-    this.matSnackBar.open(`${character.name} ha sido añadido a favoritos`, 'Aceptar');
+    this.matSnackBar.open(`${character.name} ha sido añadido a favoritos`, 'Aceptar', { duration: 1 * 1000 });
   }
 
   private removeFavorite(character: Character, list: Character[]) {
     const removeFavorite = list.filter(favorite => favorite.id !== character.id);
     const listUpdated = JSON.stringify(removeFavorite);
     localStorage.setItem('Favorites', listUpdated);
-    this.matSnackBar.open(`${character.name} ha sido eliminado de favoritos`, 'Aceptar');
+    this.matSnackBar.open(`${character.name} ha sido eliminado de favoritos`, 'Aceptar', { duration: 1 * 1000 });
   }
 
   private initFavorites() {

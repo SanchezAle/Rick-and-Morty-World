@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { tap, takeUntil, Subject, switchMap } from 'rxjs';
 
@@ -19,6 +19,8 @@ export class CharacterSummaryComponent implements OnInit, OnDestroy {
     private http: HttpClient,
     private favoriteSrv: FavoritesService,
   ) { }
+
+  @Output() toggle = new EventEmitter<Event>();
 
   character: Character = {
     id: 0,
@@ -55,6 +57,10 @@ export class CharacterSummaryComponent implements OnInit, OnDestroy {
 
   addFavorite() {
     this.favoriteSrv.newFavorite$.next(this.character);
+  }
+
+  toggleSummary() {
+    this.toggle.emit();
   }
 
   ngOnDestroy(): void {

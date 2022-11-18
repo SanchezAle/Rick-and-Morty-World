@@ -74,3 +74,13 @@ span {
 .notAlive {
     background-color: grey;
 }
+
+@media screen and (max-width: 768px) {
+    .character--container { 
+        width: 180px;
+    }
+
+    .detail {
+        flex-wrap: wrap;
+    }
+}

@@ -4,16 +4,19 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+
+    h1 {
+        text-align: center;
+    }
 }
 
 .favorites {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 5px;
     margin-top: 20px;
-    width: 95%;
-
+    width: 100%;
 }
 
 .favorite--card {
@@ -44,4 +47,10 @@ app-character-summary {
     }
     transition: all ease-out .5s;
     transform: translateX(100%);
+}
+
+@media screen and (max-width: 768px) {
+    .favorites--container { 
+        padding: 0px;
+    }
 }
