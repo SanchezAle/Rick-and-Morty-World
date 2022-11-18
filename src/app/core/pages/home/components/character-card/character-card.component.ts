@@ -1,4 +1,9 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 
 import { Character } from 'src/app/shared/models/character.model';
 import { FavoritesService } from 'src/app/core/services/favorites.service';

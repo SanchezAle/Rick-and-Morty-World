@@ -43,14 +43,3 @@ app-character-summary {
     transition: all ease-out .5s;
     transform: translateX(100%);
 }
-
-.paginator {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-
-    span {
-        margin-top: 5px
-    };
-}

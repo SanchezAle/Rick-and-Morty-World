@@ -15,6 +15,7 @@ import { CharactersDetailComponent } from './features/characters-detail/characte
 import { CharactersLocationsComponent } from './features/characters-locations/characters-locations.component'
 import { CharactersFavoritesComponent } from './features/characters-favorites/characters-favorites.component';
 import { TranslatePipe } from './features/pipes/translate.pipe';
+import { PaginatorComponent } from './core/pages/home/components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { TranslatePipe } from './features/pipes/translate.pipe';
     CharactersLocationsComponent,
     CharactersFavoritesComponent,
     TranslatePipe,
+    PaginatorComponent,
   ],
   imports: [
     BrowserModule,

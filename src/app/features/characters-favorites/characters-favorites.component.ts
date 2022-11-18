@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { CharactersDataService } from 'src/app/core/services/characters-data.service';
 import { FavoritesService } from 'src/app/core/services/favorites.service';
 import { Character } from 'src/app/shared/models/character.model';
@@ -6,13 +6,15 @@ import { Character } from 'src/app/shared/models/character.model';
 @Component({
   selector: 'app-characters-favorites',
   templateUrl: './characters-favorites.component.html',
-  styleUrls: ['./characters-favorites.component.scss']
+  styleUrls: ['./characters-favorites.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CharactersFavoritesComponent implements OnInit {
 
   constructor(
     private favoriteSrv: FavoritesService,
     private characterSrv: CharactersDataService,
+    private changeDetector: ChangeDetectorRef,
   ) { }
 
   favoriteList: Character[] = [];
@@ -29,7 +31,7 @@ export class CharactersFavoritesComponent implements OnInit {
 
   ngOnInit(): void {
     this.favoriteList = this.favoriteSrv.getFavorites();
-    console.log(this.favoriteList);
+    this.changeDetector.detectChanges();
   }
 
 }

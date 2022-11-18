@@ -33,16 +33,19 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.activeSummary = !this.activeSummary;
   }
 
-  paginator(direction: string){
+  paginator(direction: any){
+    
     if(direction === 'prev' && this.pagination > 1) {
       this.characterSrv.charactersForPage$.next(this.prevPage);
       this.pagination--;
       return;
     }
+    
     if(direction == 'next') {
       this.characterSrv.charactersForPage$.next(this.nextPage);
       this.pagination++;
     }
+
   }
 
   ngOnInit(): void {

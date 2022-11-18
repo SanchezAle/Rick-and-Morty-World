@@ -10,13 +10,12 @@ span, h1 {
 
 span {
     font-size: 0.8em;
-}
-
-span:hover {
-    color: orange;
+    &:hover {
+        color: var(--secundary-color)
+    }
 }
 
 .actions:hover {
+    color: var(--secundary-color);
     opacity: 80%;
-    color: orange;
 }
