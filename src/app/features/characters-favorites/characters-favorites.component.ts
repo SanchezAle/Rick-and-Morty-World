@@ -20,10 +20,15 @@ export class CharactersFavoritesComponent implements OnInit {
   favoriteList: Character[] = [];
   activeSummary = false;
 
+  // Activa o desactiva el estado que hace aparecer el componente character-summary
   toggleSummary() {
     this.activeSummary = !this.activeSummary;
   }
 
+  /**
+   * Comparte la informacion del personaje seleccionado al observable que es capturado por el componente character-summary
+   * @param character objeto que contiene la informacion del personaje
+   */
   submitCharacter(character: Character) {
     this.characterSrv.characterSummary.next(character);
     this.toggleSummary();

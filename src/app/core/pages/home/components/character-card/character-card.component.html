@@ -1,4 +1,4 @@
-<div (click)="viewCharacterEmitter()" class="character--container">
+<div class="character--container">
     <div class="header">
         <h1 class="name">{{ character.name }}</h1>
         <div class="separator-favorite"></div>
@@ -6,7 +6,7 @@
             <mat-icon class="favoriteIcon" (click)="addFavorite()">favorite</mat-icon>
         </button>
     </div>
-    <img class="image" src="{{ character.image }}" alt="{{ character.name }}">
+    <img class="image" src="{{ character.image }}" alt="{{ character.name }}" (click)="viewCharacterEmitter()">
     <div class="detail">
         <span>{{ character.species | translate }}</span>
         <span [ngClass]="{
@@ -16,5 +16,5 @@
             {{ character.status | translate }}
         </span>
     </div>
-    <button mat-flat-button color="basic"><span class="summary">Saber más</span></button>
+    <button mat-flat-button color="basic"><span class="summary" (click)="viewCharacterEmitter()">Saber más</span></button>
 </div>

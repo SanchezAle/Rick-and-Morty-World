@@ -32,16 +32,36 @@ export class HomeComponent implements OnInit, OnDestroy {
   private prevPage: string = '';
   private componentDestroyed$: Subject<void> = new Subject();
 
+  /**
+   * Se encarga de transmitir la informacion de algun personaje que el usuario quiera conocer
+   * esta informacion fue pensado en principio para ser capturada por el componente character-summary
+   * Esto con la intencion de realizar una accion reactiva sin el uso de Outputs
+   * @param character objeto con los datos de los personajes
+   */
+
   submitCharacter(character: Character) {
     this.characterSrv.characterSummary.next(character);
     this.toggleSummary();
   }
 
+  /**
+   * Se encarga de activar o desactivar el menu de Resumen de los personajes
+   * El cual es una barra lateral en la parte derecha de la pantalla.
+   * Esto activa el app-character-summary y un div que presenta un fondo detras que oculta las cards
+   */
+
   toggleSummary() {
     this.activeSummary = !this.activeSummary;
   }
 
-  paginator(direction: any){
+  /**
+   * Define la funcion del paginador y su accion sobre las cards de personajes,
+   * si es prev la app renderizara los personajes que entrega la api en su paginacion anterior
+   * si es next la app renderizara los personajes que entrega la api en su siguiente paginacion
+   * @direction: string
+   */
+
+  paginator(direction: string){
 
     if(direction === 'prev' && this.pagination > 1) {
       this.characterSrv.charactersForPage$.next(this.prevPage);
@@ -57,6 +77,13 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+
+    /**
+     * observable que recibe si hay una nueva url que enlista de personajes de la api
+     * Y se switchea al servicio que emite la peticion, y mientras se completa, la app activara el estado de espera por los datos
+     * una vez completada y asignadas las variables desactivara el estado de espera y renderizara las cards con los personajes
+     */
+
       this.characterSrv.charactersForPage$
         .pipe(
           takeUntil(this.componentDestroyed$),
@@ -75,6 +102,7 @@ export class HomeComponent implements OnInit, OnDestroy {
         )
         .subscribe();
 
+      // Inicializa una primera lista de personajes
       this.characterSrv.getCharacters();
   }
 

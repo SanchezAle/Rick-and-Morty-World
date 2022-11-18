@@ -43,6 +43,14 @@ export class CharacterSummaryComponent implements OnInit, OnDestroy {
   private componentDestroyed$: Subject<void> = new Subject();
 
   ngOnInit(): void {
+
+    /**
+     * Observable que captura los datos detallados del personaje que el usuario quiere conocer,
+     * la funcion replace en origin y location se emplea por ausencia del id del origen y location del personaje desde la api
+     * por lo que recorre la url y captura solo los numeros del string que aparecen al final del url
+     * por ultimo se switchea a una peticion al ultimo episodio para obtener la informacion del mismo, por ejemplo: el nombre del episodio.
+     */
+
     this.characterSrv.characterSummary
       .pipe(
         takeUntil(this.componentDestroyed$),
@@ -55,10 +63,12 @@ export class CharacterSummaryComponent implements OnInit, OnDestroy {
       .subscribe();
   }
 
+  // Emite la informacion del personaje para que se almacenado o eliminado de favoritos
   addFavorite() {
     this.favoriteSrv.newFavorite$.next(this.character);
   }
 
+  // Emite el evento que informa que el usuario genero una accion que activa el componente
   toggleSummary() {
     this.toggle.emit();
   }

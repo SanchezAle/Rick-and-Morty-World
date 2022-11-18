@@ -48,6 +48,14 @@ export class CharactersDetailComponent implements OnInit, OnDestroy {
 
   showEpisodes = false;
 
+  /**
+   * Entrega la informacion detallada de todos los episodios donde aparece el personaje actual
+   * Esta lista de episodios aparece contenido en url
+   * para lograrlo cada url se convierte en un objeto con el observable ajax.getJSON con su index como propiedad
+   * y una vez completada y obtenida la informacion, dicho objeto es vuelto a convertir en una matriz con Object.values
+   * @param url un array de strings
+   */
+
   async getEpisodesData(url: string[]) {
     const entries = url.map((item, index) => [index, ajax.getJSON(item)]);
     const forkData = Object.fromEntries(entries)
@@ -62,6 +70,14 @@ export class CharactersDetailComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+
+    /**
+     * Captura el id compartido por el url
+     * Y realiza una busqueda de la informacion detallada del personaje identificado con el id
+     * captura del id de origin y location del personaje usando replace
+     * Y se switchea a getEpisodesData para obtener la informacion de todos los episodios
+     */
+
     this.currentRoute.params
       .pipe(
         takeUntil(this.componentDestroyed$),
@@ -77,6 +93,7 @@ export class CharactersDetailComponent implements OnInit, OnDestroy {
       .subscribe();
   }
 
+  // Emite la informacion del personaje para que se almacenado o eliminado de favoritos
   addFavorite() {
     this.favoriteSrv.newFavorite$.next(this.character);
   }

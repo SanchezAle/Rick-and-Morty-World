@@ -1,9 +1,9 @@
-import { 
-  Component, 
-  ChangeDetectionStrategy, 
-  ChangeDetectorRef, 
-  OnInit, 
-  OnDestroy 
+import {
+  Component,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  OnInit,
+  OnDestroy
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { tap, takeUntil, switchMap, Subject } from 'rxjs';
@@ -28,6 +28,7 @@ export class CharactersLocationsComponent implements OnInit, OnDestroy {
   private componentDestroyed$: Subject<void> = new Subject();
   private locationId = '';
 
+  // contiene un banco de imagenes para ser renderizadas de manera aleatoria
   images = [
     'https://i.pinimg.com/564x/a0/fb/9e/a0fb9eba4b967007c898638cb1a1de46.jpg',
     'https://i.pinimg.com/564x/af/d3/81/afd3810c39d1ca1c41714a6522b3a6dc.jpg',
@@ -45,6 +46,7 @@ export class CharactersLocationsComponent implements OnInit, OnDestroy {
     url: '',
   }
 
+  // Entrega una imagen aleatorea del array imeges
   getRandomImage() {
     return this.images[Math.floor(Math.random() * this.images.length)];
   }
@@ -53,13 +55,16 @@ export class CharactersLocationsComponent implements OnInit, OnDestroy {
 
     this.img = this.getRandomImage();
 
+    /**
+     * Captura el id compartido por el url
+     * Realiza una peticion de la informacion de la location a la api
+     */
     this.currentRoute.params
       .pipe(
         takeUntil(this.componentDestroyed$),
         tap(params => this.locationId = params['id']),
         switchMap(() => this.characterSrv.getLocation(this.locationId)),
         tap(response => this.location = response),
-        tap(info => console.log(info)),
         tap(() => this.changeDetector.detectChanges()),
       )
       .subscribe();

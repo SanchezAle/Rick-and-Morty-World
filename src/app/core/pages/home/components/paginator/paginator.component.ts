@@ -1,7 +1,7 @@
 import {
   Component,
-  OnInit, 
-  Input, 
+  OnInit,
+  Input,
   Output,
   EventEmitter
 } from '@angular/core';
@@ -22,10 +22,12 @@ export class PaginatorComponent implements OnInit {
   @Input('characterCount') characterCount: number;
   @Output() directionPages = new EventEmitter<string>();
 
+  // Emite el evento que el usuario desea ir a una paginacion anterior
   previusPage() {
     this.directionPages.emit('prev');
   }
 
+  // Emite el evento que el usuario desea ir a una paginacion siguiente
   nextPage() {
     this.directionPages.emit('next');
   }
