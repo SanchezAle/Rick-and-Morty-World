@@ -21,7 +21,7 @@ export class FavoritesService {
 
   private addFavorite(character: Character, list: any) {
     const listUpdated = list;
-    const { url, episode, type, ...restCharacter } = character;
+    const { url, type, ...restCharacter } = character;
     listUpdated.push(restCharacter);
     const newFavorite = JSON.stringify(listUpdated);
     localStorage.setItem('Favorites', newFavorite);
