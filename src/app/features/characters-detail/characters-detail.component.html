@@ -10,23 +10,27 @@
     </div>
     <img class="image" src="{{ character.image }}" alt="{{ character.name }}">
     <div class="summary">
-        <span>Especie: {{ character.species }}</span>
-        <span>Genero: {{ character.gender }}</span>
+        <span>Especie: {{ character.species | translate }}</span>
+        <span>Genero: {{ character.gender | translate }}</span>
         <span [ngClass]="{
             'alive': character.status.toLowerCase().includes('alive'),
             'notAlive': !character.status.toLowerCase().includes('alive')
         }">
-            {{ character.status }}
+            {{ character.status | translate }}
         </span>
     </div>
     <div class="detail">
         <div class="separator">
             <span class="subtitle">Planeta de Origen:</span>
-            <span class="location" routerLink="/location/{{locationId}}">{{ character.origin.name }}</span>
+            <span class="location" routerLink="/location/{{locationId}}">
+                {{ character.origin.name | translate }}
+            </span>
         </div>
         <div class="separator">
             <span class="subtitle">Ultimo lugar visto:</span>
-            <span class="location" routerLink="/location/{{locationId}}">{{ character.location.name }}</span>
+            <span class="location" routerLink="/location/{{locationId}}">
+                {{ character.location.name | translate }}
+            </span>
         </div>
     </div>
     <div class="episodes--list">

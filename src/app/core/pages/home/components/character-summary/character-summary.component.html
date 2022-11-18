@@ -9,22 +9,22 @@
     </mat-toolbar>
     <img class="image" src="{{ character.image }}" alt="{{ character.name }}">
     <div class="summary">
-        <span>Especie: {{ character.species }}</span>
+        <span>Especie: {{ character.species | translate }}</span>
         <span [ngClass]="{
             'alive': character.status.toLowerCase().includes('alive'),
             'notAlive': !character.status.toLowerCase().includes('alive')
         }">
-            {{ character.status }}
+            {{ character.status | translate }}
         </span>
     </div>
     <div class="detail">
         <div class="separator">
             <span class="subtitle">Planeta de Origen:</span>
-            <span>{{ character.origin.name }}</span>
+            <span>{{ character.origin.name | translate }}</span>
         </div>
         <div class="separator">
             <span class="subtitle">Ultimo lugar visto:</span>
-            <span>{{ character.location.name }}</span>
+            <span>{{ character.location.name | translate }}</span>
         </div>
         <div class="separator">
             <span class="subtitle">Ultima aparicion:</span>

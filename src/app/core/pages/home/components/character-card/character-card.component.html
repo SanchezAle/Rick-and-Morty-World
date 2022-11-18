@@ -8,12 +8,12 @@
     </div>
     <img class="image" src="{{ character.image }}" alt="{{ character.name }}">
     <div class="detail">
-        <span>Especie: {{ character.species }}</span>
+        <span>Especie: {{ character.species | translate }}</span>
         <span [ngClass]="{
             'alive': character.status.toLowerCase().includes('alive'),
             'notAlive': !character.status.toLowerCase().includes('alive')
         }">
-            {{ character.status }}
+            {{ character.status | translate }}
         </span>
     </div>
     <button mat-flat-button color="basic"><span class="summary">Saber más</span></button>

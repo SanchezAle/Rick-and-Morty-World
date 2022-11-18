@@ -12,8 +12,9 @@ import { MaterialModule } from './shared/material/material.module';
 import { CharacterCardComponent } from './core/pages/home/components/character-card/character-card.component';
 import { CharacterSummaryComponent } from './core/pages/home/components/character-summary/character-summary.component';
 import { CharactersDetailComponent } from './features/characters-detail/characters-detail.component';
-import { CharactersLocationsComponent } from './features/characters-locations/characters-locations.component';
+import { CharactersLocationsComponent } from './features/characters-locations/characters-locations.component'
 import { CharactersFavoritesComponent } from './features/characters-favorites/characters-favorites.component';
+import { TranslatePipe } from './features/pipes/translate.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CharactersFavoritesComponent } from './features/characters-favorites/ch
     CharacterSummaryComponent,
     CharactersDetailComponent,
     CharactersLocationsComponent,
-    CharactersFavoritesComponent
+    CharactersFavoritesComponent,
+    TranslatePipe,
   ],
   imports: [
     BrowserModule,
