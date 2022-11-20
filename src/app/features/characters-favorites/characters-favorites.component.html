@@ -11,5 +11,5 @@
     </div>
 </div>
 
-<div class="backgroundDark" (click)="toggleSummary()" [class.active]="activeSummary"></div>
+<div *ngIf="activeSummary" class="backgroundDark" (click)="toggleSummary()" [class.active]="activeSummary"></div>
 <app-character-summary [class.active]="activeSummary"></app-character-summary>

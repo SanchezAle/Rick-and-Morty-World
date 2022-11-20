@@ -37,10 +37,10 @@
 app-character-summary {
     position: fixed;
     right: 0;
+    z-index: 2;
+    top: 0;
     &.active {
         transform: translateX(0%);
-        z-index: 2;
-        top: 0;
     }
     transition: all ease-out .5s;
     transform: translateX(100%);
