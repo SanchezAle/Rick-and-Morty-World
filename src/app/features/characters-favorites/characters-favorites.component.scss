@@ -2,8 +2,9 @@
     width: 100%;
     padding: 20px;
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
-    justify-content: space-around;
+    align-items: center;
 
     h1 {
         text-align: center;
@@ -17,6 +18,7 @@
     gap: 5px;
     margin-top: 20px;
     width: 100%;
+    max-width: 1250px;
 }
 
 .favorite--card {
@@ -40,10 +42,10 @@
 app-character-summary {
     position: fixed;
     right: 0;
+    z-index: 2;
+    top: 0;
     &.active {
         transform: translateX(0%);
-        z-index: 2;
-        top: 0;
     }
     transition: all ease-out .5s;
     transform: translateX(100%);

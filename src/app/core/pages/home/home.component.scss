@@ -5,9 +5,16 @@
     align-items: center;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .character--container {
     margin-top: 30px;
     width: 100%;
+    max-width: 1250px;
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -38,10 +45,10 @@
 app-character-summary {
     position: fixed;
     right: 0;
+    z-index: 2;
+    top: 0;
     &.active {
         transform: translateX(0%);
-        z-index: 2;
-        top: 0;
     }
     transition: all ease-out .5s;
     transform: translateX(100%);
