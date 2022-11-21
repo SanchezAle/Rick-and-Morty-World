@@ -12,14 +12,13 @@
 }
 
 .character--container {
-    margin-top: 30px;
     width: 100%;
     max-width: 1250px;
     padding: 20px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: 20px;
 }
 
 .message {
